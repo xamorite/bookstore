@@ -1,12 +1,16 @@
+import 'package:bookstore/data/authentication.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
+
+ const  Profile({Key? key}) : super(key: key);
 
 
 
   @override
   Widget build(BuildContext context) {
+    final AuthService _auth = AuthService();
 
     Gradient orangeGradient = LinearGradient(
       begin: Alignment.topLeft,
@@ -19,7 +23,7 @@ class Profile extends StatelessWidget {
 
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       foregroundColor: Colors.black87, backgroundColor: Colors.orange[500],
-      minimumSize: Size(88, 36),
+      minimumSize: Size(170, 40),
       padding: EdgeInsets.symmetric(horizontal: 5),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -46,19 +50,48 @@ class Profile extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
                 child: Container(
                   decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
                     gradient: orangeGradient,
                   ),
                   height: 160,
                   // color: Colors.orange,
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 25),
-                child: Center(
-                  child: Icon(
-                    Icons.person,
-                    color: Colors.white,
+             const Padding(
+                padding:  EdgeInsets.fromLTRB(60, 55, 0, 5),
+                child:  SizedBox(
+                  height: 100,
+                  child:  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Anjela', style: TextStyle(color: Colors.white, fontSize: 30),),
+                      Text('amie34@gmail.com', style: TextStyle(color: Colors.white, fontSize: 16), ),
+                      Text('Bandra, Mumbai', style: TextStyle(color: Colors.white, fontSize: 16),)
+                    ],
                   ),
+                ),
+              ),
+               Padding(
+                padding: EdgeInsets.only(top: 0.5),
+                child: Center(
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    padding: EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 3,
+                      ),
+                      image: const DecorationImage(
+                        image: AssetImage('assets/person4.jpg'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+
+                  )
                 ),
               ),
             ],
@@ -78,7 +111,8 @@ class Profile extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 2),
             child: ElevatedButton.icon(
-              onPressed:(){
+              onPressed:()async{
+                 await _auth.signOut();
                 },
               label: const Text('Log-out', style: TextStyle(color:Colors.white,fontSize:18)),
               icon: const Icon(Icons.login_outlined, color:Colors.white),
