@@ -68,10 +68,10 @@ class Profile extends StatelessWidget {
             crossAxisCount: 2,
             shrinkWrap: true,
             children: [
-              _buildGridItem(Colors.orange, Icons.edit, 'Edit Profile'),
-              _buildGridItem(Colors.orange, Icons.shopping_cart, 'My Orders'),
-              _buildGridItem(Colors.orange, Icons.payment, 'Payment'),
-              _buildGridItem(Colors.orange, Icons.card_giftcard, 'Rewards'),
+              _buildGridItem(Colors.orange, Icons.edit, 'Edit Profile', (){}),
+              _buildGridItem(Colors.orange, Icons.shopping_cart, 'My Orders', (){}),
+              _buildGridItem(Colors.orange, Icons.payment, 'Payment',(){}),
+              _buildGridItem(Colors.orange, Icons.card_giftcard, 'Rewards',(){}),
             ],
           ),
           const SizedBox(height: 5),
@@ -91,7 +91,7 @@ class Profile extends StatelessWidget {
     );
   }
 
-  Widget _buildGridItem(Color color, IconData icon, String text) {
+  Widget _buildGridItem(Color color, IconData icon, String text, Function function ) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
       padding: const EdgeInsets.all(5),
@@ -125,13 +125,14 @@ class Profile extends StatelessWidget {
             size: 40,
           ),
           const SizedBox(height: 10),
-          Text(
+          TextButton(onPressed: () => function(), child:Text(
             text,
             style: TextStyle(
               color: color,
               fontSize: 18,
             ),
-          ),
+          ), )
+
         ],
       ),
     );
