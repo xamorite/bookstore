@@ -1,5 +1,6 @@
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import '../main.dart';
 
 class SignUp extends StatefulWidget {
@@ -10,6 +11,9 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  String email = '';
+  String password = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,10 +37,10 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.all(20),
-                child: TextField(
-                  decoration: InputDecoration(
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child:  TextField(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     suffixIcon: Icon(Icons.person),
@@ -45,12 +49,15 @@ class _SignUpState extends State<SignUp> {
                       fontSize: 20.0,
                     ),
                   ),
+                  onChanged: (value) {
+                    email = value;
+                  },
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.all(20),
+              Padding(
+                padding:const EdgeInsets.all(20),
                 child: TextField(
-                  decoration: InputDecoration(
+                  decoration:const InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     suffixIcon: Icon(Icons.mail),
@@ -59,13 +66,16 @@ class _SignUpState extends State<SignUp> {
                       fontSize: 20.0,
                     ),
                   ),
+                  onChanged: (val) {
+                    setState(() => email = val);
+                  },
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.all(20),
+              Padding(
+                padding:const EdgeInsets.all(20),
                 child: TextField(
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration:const InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     suffixIcon: Icon(Icons.remove_red_eye),
@@ -74,6 +84,9 @@ class _SignUpState extends State<SignUp> {
                       fontSize: 20.0,
                     ),
                   ),
+                  onChanged: (val) {
+                    setState(() => password = val);
+                  },
                 ),
               ),
               Padding(

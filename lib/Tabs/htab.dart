@@ -77,7 +77,11 @@ class _HomeTabState extends State<HomeTab> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+        //  Container(
+        //   child: Icon(Icons.home_filled),
+        //  );
+        Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -160,9 +164,9 @@ class _HomeTabState extends State<HomeTab> {
                           const SizedBox(width: 12),
                       itemBuilder: (context, index) => const Column(
                         children: [
-                          Image(
-                            image: AssetImage('assets/book1.jpg'),
-                          ),
+                           Image(
+                             image: AssetImage('assets/book1.jpg'),
+                           ),
                           Text(
                             'Title',
                             style: TextStyle(

@@ -23,13 +23,11 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-          child: const Center(
-          child: Image(image: AssetImage('ic_launcher.png'))
-      
-      ),
-      )
+    return const Scaffold(
+      body: Center(
+      child: Image(image: AssetImage('ic_launcher.png'))
+            
+            )
     );
   }
 }
