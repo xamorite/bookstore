@@ -1,6 +1,7 @@
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:bookstore/data/repositories/authenticate.dart';
 import '../main.dart';
 
 class SignUp extends StatefulWidget {
@@ -39,7 +40,7 @@ class _SignUpState extends State<SignUp> {
               ),
               Padding(
                 padding: const EdgeInsets.all(20),
-                child:  TextField(
+                child: TextField(
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -55,9 +56,9 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
               Padding(
-                padding:const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: TextField(
-                  decoration:const InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     suffixIcon: Icon(Icons.mail),
@@ -72,10 +73,10 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
               Padding(
-                padding:const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: TextField(
                   obscureText: true,
-                  decoration:const InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     suffixIcon: Icon(Icons.remove_red_eye),
@@ -96,13 +97,7 @@ class _SignUpState extends State<SignUp> {
                   children: [
                     const Text('Already have an account ?'),
                     TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SignUp()),
-                          );
-                        },
+                        onPressed:  (){},
                         child: const Text(
                           'Login',
                           style: TextStyle(color: Colors.orange),
@@ -110,14 +105,14 @@ class _SignUpState extends State<SignUp> {
                   ],
                 ),
               ),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.all(20.0),
                 child: ElevatedButton(
-                    onPressed: check,
-                    style: ButtonStyle(
+                    onPressed: () {},
+                    style: const ButtonStyle(
                       backgroundColor: MaterialStatePropertyAll(Colors.orange),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Sign-up',
                       style: TextStyle(
                         fontSize: 20,

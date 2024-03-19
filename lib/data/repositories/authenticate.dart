@@ -1,4 +1,5 @@
 // import 'package:bookstore/Tabs/home.dart';
+import 'package:bookstore/Tabs/home.dart';
 import 'package:bookstore/data/login.dart';
 import 'package:bookstore/data/signup.dart';
 import 'package:flutter/material.dart';
@@ -11,21 +12,20 @@ class Authenticate extends StatefulWidget {
 }
 
 class _AuthenticateState extends State<Authenticate> {
+  bool changeAuth = true;
+
+  Changeauth() {
+    setState(() {
+      changeAuth = !changeAuth;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    
-    bool changeAuth = true;
-
-    void toggleAuth() {
-      setState(() {
-        changeAuth = !changeAuth;
-      });
-    }
-
     if (changeAuth) {
-      return const Login();
+      return const Home();
     } else {
-      return const SignUp();
+      return const Login();
     }
   }
 }

@@ -94,7 +94,7 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Digital Book  Store',
+                  'Digital Book Store',
                   style: TextStyle(
                     color: Colors.white,
                   ),

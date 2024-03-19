@@ -31,15 +31,7 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-check() {
-  // runApp(const Home());
-  print('You are linked to the home page');
-}
 
-inlog() {
-  // runApp(const Login());
-  print('You are linked to the login page');
-}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -50,7 +42,7 @@ class MyApp extends StatelessWidget {
     return StreamProvider<UserA?>.value(
       value: AuthService().user,
       initialData: null,
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Wrapper(),
       ),

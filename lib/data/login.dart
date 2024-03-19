@@ -15,6 +15,7 @@ class _LoginState extends State<Login> {
 
   String email = '';
   String password = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +81,7 @@ class _LoginState extends State<Login> {
                   children: [
                     const Text('Dont have an account ?'),
                     TextButton(
-                        onPressed: toggleAuth,
+                        onPressed: (){},
                         child: const Text(
                           'SignUp',
                           style: TextStyle(color: Colors.orange),
