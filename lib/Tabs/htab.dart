@@ -42,48 +42,44 @@ class _HomeTabState extends State<HomeTab> {
   //   ),
   // ];
 
-  // final List<VerticalRowImages> author = [
-  //   VerticalRowImages(
-  //     image: 'assets/person1.jpg',
-  //     title: 'Canery',
-  //     onTap: () {},
-  //   ),
-  //   VerticalRowImages(
-  //     image: 'assets/person2.jpg',
-  //     title: 'James',
-  //     onTap: () {},
-  //   ),
-  //   VerticalRowImages(
-  //     image: 'assets/person3.jpg',
-  //     title: 'Wisdom',
-  //     onTap: () {},
-  //   ),
-  //   VerticalRowImages(
-  //     image: 'assets/person4.jpg',
-  //     title: 'Jesse',
-  //     onTap: () {},
-  //   ),
-  //   VerticalRowImages(
-  //     image: 'assets/person5.jpg',
-  //     title: 'Emmanuel',
-  //     onTap: () {},
-  //   ),
-  //   VerticalRowImages(
-  //     image: 'assets/person6.jpg',
-  //     title: 'Tom',
-  //     onTap: () {},
-  //   ),
-  // ];
+  final List<VerticalRowImages> author = [
+    VerticalRowImages(
+      image: 'assets/person1.jpg',
+      title: 'Canery',
+      onTap: () {},
+    ),
+    VerticalRowImages(
+      image: 'assets/person2.jpg',
+      title: 'James',
+      onTap: () {},
+    ),
+    VerticalRowImages(
+      image: 'assets/person3.jpg',
+      title: 'Wisdom',
+      onTap: () {},
+    ),
+    VerticalRowImages(
+      image: 'assets/person4.jpg',
+      title: 'Jesse',
+      onTap: () {},
+    ),
+    VerticalRowImages(
+      image: 'assets/person5.jpg',
+      title: 'Emmanuel',
+      onTap: () {},
+    ),
+    VerticalRowImages(
+      image: 'assets/person6.jpg',
+      title: 'Tom',
+      onTap: () {},
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return
-        //  Container(
-        //   child: Icon(Icons.home_filled),
-        //  );
-        const Scaffold(
+    return  Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
         // children: [
         //   Padding(
         //     padding: const EdgeInsets.only(
@@ -92,7 +88,7 @@ class _HomeTabState extends State<HomeTab> {
         //     child: Column(
         //       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         //       children: [
-        //         const SearchContainer(
+        //         SearchContainer(
         //           text: 'Search for books',
         //           icon: Icons.search,
         //         ),
@@ -185,8 +181,34 @@ class _HomeTabState extends State<HomeTab> {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-            child: Text('Home😒😒'),
+            child:  SearchContainer(
+              text: 'Search for books',
+              icon: Icons.search,
+            ),
           ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            child: SectionHeading(
+              title: 'Popular Authors',
+             showActionButton: false,
+             ),
+          ),
+          Padding(padding: EdgeInsets.only(left:20.0),
+          child:
+            SizedBox(
+              height: 150, // Adjust the height as per your requirement
+              child: ListView.separated(
+                physics: const AlwaysScrollableScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                separatorBuilder: (_, __) => const SizedBox(width: 12),
+                itemCount: 6,
+                itemBuilder: (_, index) {
+                  return author[index];
+                  },
+              ),
+            ),
+          )
+
           
         ],
       ),

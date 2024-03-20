@@ -14,18 +14,17 @@ class Authenticate extends StatefulWidget {
 class _AuthenticateState extends State<Authenticate> {
   bool changeAuth = true;
 
-  Changeauth() {
-    setState(() {
-      changeAuth = !changeAuth;
-    });
-  }
+ void Changeauth() {
+    setState(()=> changeAuth = !changeAuth ) ;
+    }
+
 
   @override
   Widget build(BuildContext context) {
     if (changeAuth) {
-      return const Home();
+      return  SignUp(Changeauth : Changeauth);
     } else {
-      return const Login();
+      return  Login(Changeauth : Changeauth );
     }
   }
 }

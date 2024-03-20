@@ -1,3 +1,4 @@
+import 'package:bookstore/Tabs/cart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/widgets.dart';
@@ -75,12 +76,7 @@ class _HomeState extends State<Home> {
         color: Colors.orange,
       ),
     ),
-    const Center(
-      child: Icon(
-        Icons.shopping_cart,
-        color: Colors.orange,
-      ),
-    ),
+    const Cart(),
   ];
 
   @override
