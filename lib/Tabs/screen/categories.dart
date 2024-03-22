@@ -10,9 +10,13 @@ class Categories extends StatelessWidget {
       appBar: AppBar(
         elevation: 1,
         backgroundColor: Colors.white,
-        title: Text(
-          "Categories",
-          style: Theme.of(context).textTheme.displayMedium,
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: const Text("Categories",
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.orange,
+              )),
         ),
       ),
       body: Padding(

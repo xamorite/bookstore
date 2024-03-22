@@ -141,7 +141,7 @@ class BookList extends StatelessWidget {
                                         width: constraints.maxWidth * 0.35,
                                         alignment: Alignment.center,
                                         decoration: BoxDecoration(
-                                            color: AppColors.black,
+                                            color: Colors.orange,
                                             borderRadius:
                                                 BorderRadius.circular(12)),
                                         child: Text(
@@ -166,7 +166,7 @@ class BookList extends StatelessWidget {
               }
               return Center(
                 child: CircularProgressIndicator(
-                  color: AppColors.black,
+                  color: Colors.orange,
                 ),
               );
             },

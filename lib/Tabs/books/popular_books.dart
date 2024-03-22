@@ -78,7 +78,7 @@ class PopularBooks extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                               "${snapshot.data?.items![index].volumeInfo!.authors?.isNotEmpty == true ? snapshot.data?.items![index].volumeInfo!.authors![0] : "Censored"}",
+                                    "${snapshot.data?.items![index].volumeInfo!.authors?.isNotEmpty == true ? snapshot.data?.items![index].volumeInfo!.authors![0] : "Censored"}",
                                     // maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
                                     style: Theme.of(context)
@@ -99,7 +99,7 @@ class PopularBooks extends StatelessWidget {
                                             fontSize:
                                                 constraints.maxWidth * 0.048)),
                                 Text(
-"${snapshot.data?.items![index].volumeInfo!.categories?.isNotEmpty == true ? snapshot.data?.items![index].volumeInfo!.categories![0] : "Unknown"}",
+                                  "${snapshot.data?.items![index].volumeInfo!.categories?.isNotEmpty == true ? snapshot.data?.items![index].volumeInfo!.categories![0] : "Unknown"}",
                                   maxLines: 1,
                                   style: Theme.of(context)
                                       .textTheme
@@ -114,7 +114,7 @@ class PopularBooks extends StatelessWidget {
                                   width: constraints.maxWidth * 0.18,
                                   alignment: Alignment.center,
                                   decoration: BoxDecoration(
-                                      color: AppColors.black,
+                                      color: Colors.orange,
                                       borderRadius: BorderRadius.circular(12)),
                                   child: Text(
                                     "\$${snapshot.data?.items![index].volumeInfo?.pageCount ?? "96.9"}",
@@ -137,7 +137,7 @@ class PopularBooks extends StatelessWidget {
           }
           return Center(
               child: CircularProgressIndicator(
-            color: AppColors.black,
+            color: Colors.orange,
           ));
         });
   }

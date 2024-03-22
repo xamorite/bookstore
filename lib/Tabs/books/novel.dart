@@ -85,7 +85,7 @@ class NovelBooks extends StatelessWidget {
                             width: constraints.maxWidth * 0.18,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                                color: AppColors.black,
+                                color: Colors.orange,
                                 borderRadius: BorderRadius.circular(12)),
                             child: Text(
                               "\$${snapshot.data?.items?[index].volumeInfo?.pageCount ?? "298"}",
@@ -104,7 +104,7 @@ class NovelBooks extends StatelessWidget {
           }
           return Center(
               child: CircularProgressIndicator(
-            color: AppColors.black,
+            color: Colors.orange,
           ));
         });
   }

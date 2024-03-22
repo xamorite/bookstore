@@ -69,11 +69,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                           image: NetworkImage(
                                               "${snapshot.data?.volumeInfo?.imageLinks?.thumbnail}"),
                                           fit: BoxFit.cover,
-                                           
-  errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-    // Return an alternate image widget here
-    return Image.asset('https://img.freepik.com/premium-photo/book-cover-ready-text-graphic-isolated-white_960782-61449.jpg?w=360');
-  },
+                                          errorBuilder: (BuildContext context,
+                                              Object exception,
+                                              StackTrace? stackTrace) {
+                                            // Return an alternate image widget here
+                                            return Image.asset(
+                                                'https://img.freepik.com/premium-photo/book-cover-ready-text-graphic-isolated-white_960782-61449.jpg?w=360');
+                                          },
                                         ),
                                       ),
                                     ),
@@ -89,7 +91,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                           side: const BorderSide(width: 1)),
                                       icon: Icon(
                                         Icons.arrow_back_ios_new,
-                                        color: AppColors.black,
+                                        color: Colors.orange,
                                       ),
                                       label: const Text(
                                         "",
@@ -118,8 +120,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                     "${snapshot.data?.volumeInfo!.authors?.isNotEmpty == true ? snapshot.data?.volumeInfo!.authors![0] : "Censored"}"
                                         .toUpperCase(),
                                     textAlign: TextAlign.center,
-                                    style:
-                                        Theme.of(context).textTheme.headlineMedium,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium,
                                   ),
                                   const SizedBox(
                                     height: 10,
@@ -177,18 +180,22 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                         onPressed: () async {
                                           Uri url = Uri.parse(
                                               "${snapshot.data?.volumeInfo?.previewLink}");
-
-                                          if (await canLaunchUrl(url)) {
-                                            await launchUrl(url,
-                                                mode: LaunchMode
-                                                    .externalApplication);
-                                          } else {
-                                            throw 'could not launch $url';
+                                          try {
+                                            if (await canLaunchUrl(url)) {
+                                              await launchUrl(url,
+                                                  mode: LaunchMode
+                                                      .externalApplication);
+                                            } else {
+                                              throw 'Could not launch $url';
+                                            }
+                                          } catch (e) {
+                                            print('Error launching URL: $e');
+                                            // Handle the error gracefully, e.g., display an error message
                                           }
                                         },
                                         style: OutlinedButton.styleFrom(
                                             side: const BorderSide(width: 1)),
-                                        child:const Text("VIEW ONLINE",
+                                        child: const Text("VIEW ONLINE",
                                             style: TextStyle(
                                               fontSize: 20,
                                               color: Colors.orange,
@@ -200,7 +207,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                             side: const BorderSide(width: 1)),
                                         icon: Icon(
                                           Icons.favorite_outline,
-                                          color: AppColors.black,
+                                          color: Colors.orange,
                                         ),
                                         label: const Text("WISHLIST",
                                             style: TextStyle(
@@ -225,7 +232,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                   SizedBox(
                                     child: Row(
                                       children: [
-                                 const       Column(
+                                        const Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment:
@@ -309,7 +316,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                   ReadMoreText(
                                     "${snapshot.data?.volumeInfo?.description}",
                                     trimLines: 6,
-                                    colorClickableText: AppColors.black,
+                                    colorClickableText: Colors.orange,
                                     trimMode: TrimMode.Line,
                                     trimCollapsedText: '...Read More',
                                     style: Theme.of(context)
@@ -354,7 +361,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     }
                     return Center(
                         child: CircularProgressIndicator(
-                      color: AppColors.black,
+                      color: Colors.orange,
                     ));
                   },
                 )

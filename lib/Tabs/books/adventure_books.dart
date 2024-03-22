@@ -74,7 +74,7 @@ class AdevntureBooks extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: Theme.of(context)
                                 .textTheme
-                                .headline4
+                                .headlineMedium
                                 ?.copyWith(
                                     fontSize: constraints.maxWidth * 0.035,
                                     fontWeight: FontWeight.w500),
@@ -84,7 +84,7 @@ class AdevntureBooks extends StatelessWidget {
                             width: constraints.maxWidth * 0.18,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
-                                color: AppColors.black,
+                                color: Colors.orange,
                                 borderRadius: BorderRadius.circular(12)),
                             child: Text(
                               "\$${snapshot.data?.items![index].volumeInfo?.pageCount}",
@@ -103,7 +103,7 @@ class AdevntureBooks extends StatelessWidget {
           }
           return Center(
               child: CircularProgressIndicator(
-            color: AppColors.black,
+            color: Colors.orange,
           ));
         });
   }

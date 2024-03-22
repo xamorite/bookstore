@@ -4,22 +4,22 @@ import 'package:google_fonts/google_fonts.dart';
 TextTheme textTheme = TextTheme(
   displayLarge: GoogleFonts.sourceSerif4(
     fontSize: 32,
-    color: Colors.black87,
+    color: Colors.orange,
     fontWeight: FontWeight.bold,
   ),
-  displayMedium : GoogleFonts.sourceSerif4(
+  displayMedium: GoogleFonts.sourceSerif4(
     fontSize: 20,
-    color: Colors.black87,
+    color: Colors.orange,
     fontWeight: FontWeight.w800,
   ),
   displaySmall: GoogleFonts.sourceSerif4(
     fontSize: 18,
     fontWeight: FontWeight.w400,
-    color: Colors.black87,
+    color: Colors.orange,
   ),
   headlineMedium: GoogleFonts.poppins(
     fontSize: 16,
-    color: Colors.black87,
+    color: Colors.orange,
     fontWeight: FontWeight.w400,
   ),
   headlineSmall: GoogleFonts.poppins(
@@ -30,7 +30,7 @@ TextTheme textTheme = TextTheme(
 
 class AppColors {
   static Color lightBlue = const Color(0xffCFEDEF);
-  static Color black = Colors.black87;
+  static Color black = Colors.orange;
 }
 
 List<Color> boxColors = const [

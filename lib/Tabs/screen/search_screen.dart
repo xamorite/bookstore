@@ -79,7 +79,7 @@ class CustomSearchDelegate extends SearchDelegate {
             }
             return Center(
               child: CircularProgressIndicator(
-                color: AppColors.black,
+                color: Colors.orange,
               ),
             );
           },
@@ -129,7 +129,7 @@ class CustomSearchDelegate extends SearchDelegate {
             }
             return Center(
               child: CircularProgressIndicator(
-                color: AppColors.black,
+                color: Colors.orange,
               ),
             );
           },
