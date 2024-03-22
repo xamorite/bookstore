@@ -2,6 +2,7 @@
 // import 'dart:html';
 import 'package:bookstore/data/authentication.dart';
 import 'package:bookstore/model/user.dart';
+import 'package:bookstore/notifier/app_notifier.dart';
 import 'package:bookstore/wrapper.dart';
 import 'package:get/get.dart';
 import 'data/repositories/authentication_repository.dart';
@@ -39,12 +40,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<UserA?>.value(
-      value: AuthService().user,
-      initialData: null,
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Wrapper(),
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => AppNotifier())],
+      child: StreamProvider<UserA?>.value(
+        value: AuthService().user,
+        initialData: null,
+        child: const MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: Wrapper(),
+        ),
       ),
     );
   }

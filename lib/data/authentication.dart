@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:bookstore/data/repositories/database.dart';
 import 'package:bookstore/model/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -29,10 +29,28 @@ class AuthService {
       return null;
     }
   }
-  Future registerWithEmailAndPassword(String email, String password)async{
+  // Login
+  Future loginWithEmailAndPassword(String email, String password)async{
     try{
-       UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      UserCredential result = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      User? user = result.user;
+      return _userFromFirebaseUser(user);
+    }catch(e){
+      print(e.toString());
+      return null;
+    }
+  }
+
+
+  //Sign up
+  Future registerWithEmailAndPassword(String email, String password)async{
+
+    try{
+       UserCredential result = await _auth.createUserWithEmailAndPassword(email: email, password: password,);
        User? user = result.user;
+
+       // creating a firestore document for the new user
+       await DatabaseService(uid: user?.uid).updateUserData('Your name', email, 'Enter your location manually');
        return _userFromFirebaseUser(user);
     }catch(e){
         print(e.toString());

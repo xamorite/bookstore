@@ -12,7 +12,7 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     final AuthService _auth = AuthService();
 
-    Gradient orangeGradient = LinearGradient(
+    Gradient orangeGradient = const LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
       colors: [
@@ -23,8 +23,8 @@ class Profile extends StatelessWidget {
 
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       foregroundColor: Colors.black87, backgroundColor: Colors.orange[500],
-      minimumSize: Size(170, 40),
-      padding: EdgeInsets.symmetric(horizontal: 5),
+      minimumSize: const Size(170, 40),
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
@@ -73,12 +73,12 @@ class Profile extends StatelessWidget {
                 ),
               ),
                Padding(
-                padding: EdgeInsets.only(top: 0.5),
+                padding: const EdgeInsets.only(top: 0.5),
                 child: Center(
                   child: Container(
                     height: 100,
                     width: 100,
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(100),
                       border: Border.all(

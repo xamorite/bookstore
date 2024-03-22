@@ -1,8 +1,13 @@
 import 'package:bookstore/Tabs/cart.dart';
+import 'package:bookstore/Tabs/screen/categories.dart';
+import 'package:bookstore/Tabs/screen/home_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:bookstore/data/repositories/database.dart';
+import 'package:provider/provider.dart';
 // import 'package:flutter/widgets.dart';
-import 'htab.dart';
+// import 'htab.dart';
 import 'profile.dart';
 
 String user = 'Xamorite';
@@ -33,12 +38,12 @@ List<BottomNavigationBarItem> nav = [
   ),
   const BottomNavigationBarItem(
     icon: Icon(
-      CupertinoIcons.heart,
+      CupertinoIcons.folder_badge_person_crop,
       size: 40,
     ),
-    label: 'Wishlist',
+    label: 'Categories',
     activeIcon: Icon(
-      CupertinoIcons.heart_fill,
+      CupertinoIcons.folder_fill_badge_person_crop,
       size: 40,
     ),
     backgroundColor: Colors.orange,
@@ -68,20 +73,17 @@ class _HomeState extends State<Home> {
   int _currentIndex = 0;
 
   List tabs = [
-    const HomeTab(),
+    // const HomeTab(),
+    HomeScreen(),
     const Profile(),
-    const Center(
-      child: Icon(
-        Icons.person,
-        color: Colors.orange,
-      ),
-    ),
+    const Categories(),
     const Cart(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Padding(

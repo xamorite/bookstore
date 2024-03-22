@@ -1,5 +1,6 @@
 // import 'package:flutter/cupertino.dart';
 import 'package:bookstore/data/authentication.dart';
+import 'package:bookstore/data/repositories/database.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:bookstore/data/repositories/authenticate.dart';
@@ -22,6 +23,7 @@ class _SignUpState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
+  String username = '';
   String error =  '';
 
   @override
@@ -63,7 +65,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                     onChanged: (value) {
-                      email = value;
+                      username = value;
                     },
                   ),
                 ),
